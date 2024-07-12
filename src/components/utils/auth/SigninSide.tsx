@@ -14,24 +14,7 @@ import {
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import IMAGES from "../../../images/images";
-
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://debugoo.vercel.app/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import Copyright from "../common/CopyRight";
 
 const defaultTheme = createTheme();
 
