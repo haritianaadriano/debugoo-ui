@@ -15,17 +15,24 @@ import {
 import Paper from "@mui/material/Paper";
 import IMAGES from "../../../images/images";
 import Copyright from "../common/CopyRight";
+import { AuthApi } from "../../../api/provider/auth";
+import { client } from "../../../api/axios.client";
+import { UserSignIn } from "../../../api/types/user";
 
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const request = new AuthApi(client);
+
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const payload = {
       email: data.get("email"),
       password: data.get("password"),
-    });
+    };
+
+    request.signin(payload as UserSignIn);
   };
 
   return (
